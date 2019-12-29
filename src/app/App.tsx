@@ -1,9 +1,9 @@
-import * as React from 'react';
-// import styles
+import * as React from "react";
 
+import "../styles/base.scss";
 
 export class App extends React.Component {
-    render() {
-        return <h1>Hello World</h1>
-    }
+  render() {
+    return <h1>Hello World</h1>;
+  }
 }
