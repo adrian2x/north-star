@@ -1,6 +1,10 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
+import { render } from "react-dom";
+import { createStore } from "redux";
+import reducers from "./reducers";
+
+const store = createStore(reducers);
 
 import { App } from "./app/App";
 
-ReactDOM.render(React.createElement(App, {}), document.getElementById("react"));
+render(React.createElement(App, { store }), document.getElementById("react"));
