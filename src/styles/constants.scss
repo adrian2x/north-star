@@ -1,2 +1,50 @@
 $ink-color: #333333;
 $page-color: #ffffff;
+
+// Spacing
+$base_size: 16px;
+$min_space: $base_size * 0.25;
+$sm_space_1: $base_size * 0.5;
+$sm_space_2: $base_size * 0.75;
+$sm_space_3: $base_size * 1;
+$lg_space_1: $base_size * 1.5;
+$lg_space_2: $base_size * 2;
+$lg_space_3: $base_size * 3;
+$lg_space_4: $base_size * 4;
+$lg_space_8: $base_size * 8;
+$lg_space_12: $base_size * 12;
+$lg_space_16: $base_size * 16;
+
+/* Colors
+Defined as a set of constants (black, white, blue, etc) and aliases for reference (text, border, background, etc)
+Each color should have a spectrum of tints and tones based on percentages of the original.
+Whenever possible, use an alias instead of the constant.
+
+# Text
+Text colors should be optimized for accessibility
+
+# State colors
+Used to communicate status, errors, alerts. eg. positive, negative, warning
+
+# Utility colors
+Specialized values for backgrounds, overlays, opacity, borders, outlines, etc.
+
+# Layout
+Defines a layout system along with spacing and breakpoints
+ */
+
+$breakpoint_base: 0px;
+$breakpoint_mobile: 735px; // and less
+$breakpoint_tablet: 1023px; // 736 - 1024
+$breakpoint_desktop: 1439px; // 1024 - 1440
+$breakpoint_cinema: 1440px; // and greater
+$breakpoint_large: 1600px; // and greater
+$breakpoint_xlarge: 1920px; // and greater
+
+/* Typography
+Based on 2 fonts and multiple sizes and weights.
+*/
+$line_height: 1.5;
+$font_sizes: (12, 14, 16, 20, 24);
+$font_weight: 400;
+$button_weight: 500;

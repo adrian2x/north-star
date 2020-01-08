@@ -103,3 +103,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# ignore node_modules symlink
+node_modules
+node_modules.nosync
