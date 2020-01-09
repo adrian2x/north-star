@@ -1,0 +1,3 @@
+[submodule "src/external/spectre"]
+	path = src/external/spectre
+	url = https://github.com/adrian2x/spectre.git
