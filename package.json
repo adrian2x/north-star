@@ -1,5 +1,5 @@
 {
-  "name": "north-star",
+  "name": "react_shell",
   "version": "0.0.0",
   "description": "Starter kit for modern web applications",
   "main": "index.js",
@@ -36,6 +36,7 @@
     "yarn": "^1.21.1"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^1.3.0",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
@@ -55,6 +56,7 @@
     "jest": "^24.9.0",
     "normalize.css": "^8.0.1",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-purgecss": "^2.1.3",
     "postcss": "^7.0.25",
     "postcss-normalize": "^8.0.1",
     "postcss-preset-env": "^6.7.0",

@@ -3,6 +3,6 @@
     "autoprefixer": true,
     "postcss-normalize": true,
     "postcss-preset-env": true,
-    "stylelint": true,
+    "stylelint": true
   }
 }

@@ -1,8 +1,6 @@
-@import "normalize.css";
 @import "./constants.scss";
 
 body {
     color: $ink-color;
     background-color: $page-color;
-    margin: 0;
 }
