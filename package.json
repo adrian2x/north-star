@@ -12,8 +12,8 @@
     "start": "parcel index.html",
     "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:js": "eslint src/**/*.{js,ts,jsx,tsx} --fix",
-    "lint:css": "stylelint src/**/*.scss --fix",
+    "lint:js": "eslint 'src/!(externals)/**/*.{ts,tsx}' --fix",
+    "lint:css": "stylelint 'src/!(externals)**/*.scss' --fix",
     "linters": "npm run lint:js && npm run lint:css",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"

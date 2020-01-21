@@ -27,12 +27,14 @@ export class Button extends PureComponent<ButtonProps, {}> {
 
   render() {
     const { props } = this;
-    const classList = clsx("btn", props.className, {
-      [`btn-${props.size}`]: props.size,
-      [`btn-${props.state}`]: props.state,
-      active: props.active,
-      disabled: props.disabled,
-    });
+    const classList = clsx(
+      "btn",
+      props.className,
+      props.size && "btn-" + props.size,
+      props.state && "btn-" + props.state,
+      props.active && "active",
+      props.disabled && "disabled",
+    );
     return (
       <button className={classList} disabled={props.disabled}>
         {props.children}

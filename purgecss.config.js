@@ -1,4 +1,4 @@
 module.exports = {
-  content: ["./index.html", "./**/*.{ts,tsx,js}"],
+  content: ["./index.html", "src/**/*.{ts,tsx,js}"],
   whitelist: [],
 };
