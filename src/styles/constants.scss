@@ -1,3 +1,5 @@
+@import "../external/spectre/src/_variables";
+
 $ink-color: #333333;
 $page-color: #ffffff;
 
@@ -14,6 +16,25 @@ $lg_space_4: $base_size * 4;
 $lg_space_8: $base_size * 8;
 $lg_space_12: $base_size * 12;
 $lg_space_16: $base_size * 16;
+
+$color-money: hsl(174.3, 58%, 25%);
+$color-bank-note: hsl(155.4, 59%, 20%);
+$color-light-mint: rgba(116, 217, 159, 1);
+
+$primary-color: #0054b7;
+$success-color: #2a9187;
+$error-color: #e74949;
+$dark-color: hsl(205.7, 8%, 7%);
+$border-radius: 3px;
+$border-radius-2: 5px;
+$border-radius-3: 8px;
+
+$navbar-height: 50px;
+$box-shadow-1: 0 1px 3px rgba($dark-color, 0.2);
+$box-shadow-2: 0 4px 6px rgba($dark-color, 0.2);
+$box-shadow-3: 0 5px 15px rgba($dark-color, 0.2);
+$box-shadow-4: 0 10px 24px rgba($dark-color, 0.2);
+$box-shadow-5: 0 15px 35px rgba($dark-color, 0.2);
 
 /* Colors
 Defined as a set of constants (black, white, blue, etc) and aliases for reference (text, border, background, etc)

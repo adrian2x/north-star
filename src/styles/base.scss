@@ -1,5 +1,5 @@
-@import "./constants.scss";
-@import "src/external/spectre/src/spectre.scss";
+@import "./constants";
+@import "../external/spectre/src/spectre";
 
 body {
     color: $ink-color;

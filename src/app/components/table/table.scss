@@ -1,0 +1,73 @@
+@import "../../../styles/constants";
+@import "../../../external/react-virtualized/styles";
+
+$font-size-s2: 12px;
+
+.table {
+  // for ui-tables use a lot more padding and space ie. 1em vertical, 10px horizontal, no borders
+  // for data-tables which are more compact, less spacing ie. 10px vertical, 8px horizontal, subtle borders
+  // table headers should use half vertical padding
+  border-radius: $border-radius-2;
+  box-shadow: $box-shadow-1;
+  min-height: 525px;
+  margin: 1.5rem auto;
+  width: 100%;
+  display: flex;
+
+  &[data-count="0"] {
+    min-height: 0;
+  }
+
+  .ReactVirtualized__Table {
+    $headerLineHeight: 1;
+
+    .ReactVirtualized__Table__headerRow {
+      border-top-left-radius: $border-radius-2;
+      border-top-right-radius: $border-radius-2;
+      font-size: $font-size-s2;
+      color: $gray-color-dark;
+      background-color: $gray-color-light;
+      border-bottom: 1px solid rgba($gray-color, 0.2);
+      padding-right: 0 !important;
+    }
+
+    .ReactVirtualized__Table__headerColumn {
+      line-height: $headerLineHeight;
+      letter-spacing: 1px;
+      padding: 1em 1px;
+      outline: none;
+    }
+
+    .ReactVirtualized__Table__sortableHeaderIcon {
+      height: #{$headerLineHeight}em;
+    }
+
+    .ReactVirtualized__Table__row {
+      border-bottom: 1px solid rgba($gray-color, 0.2);
+
+      &.row-dark {
+        background-color: $gray-color-light;
+      }
+
+      &:hover {
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      -webkit-box-shadow: none;
+      background-color: transparent;
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      width: 4px;
+      background: $gray-color;
+      opacity: 0.99;
+    }
+  }
+}
