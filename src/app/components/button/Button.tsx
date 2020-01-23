@@ -18,7 +18,7 @@ export interface ButtonProps {
 }
 
 /**
- * Wraps and html `button` element.
+ * Wraps an html `button` element.
  */
 export class Button extends PureComponent<ButtonProps, {}> {
   static defaultProps = {
