@@ -3,6 +3,10 @@ const path = require("path");
 module.exports = {
   title: "Styleguidist",
   components: "src/app/components/**/*.{js,jsx,ts,tsx}",
+  context: {
+    Column: "react-virtualized/dist/es/Table/Column",
+    table_data: path.resolve(__dirname, "src/tests/fixtures/table_data"),
+  },
   propsParser: require("react-docgen-typescript").withCustomConfig(
     "./tsconfig.json",
     [
