@@ -14,17 +14,19 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /node_modules/,
         use: "ts-loader",
+        exclude: /node_modules/,
+        include: /src/,
       },
       {
         test: /\.s?css$/,
         use: ["style-loader", "css-loader", "postcss-sass-loader"],
         exclude: /node_modules/,
+        include: /src/,
       },
     ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".scss"],
   },
 };

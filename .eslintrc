@@ -32,7 +32,6 @@
         "react/jsx-no-comment-textnodes": "error",
         "react/jsx-props-no-multi-spaces": "error",
         "react/react-in-jsx-scope": "off",
-        "react/no-did-update-set-state": "error",
         "react/no-string-refs": "error",
         "react/no-unused-prop-types": "error",
         "react/default-props-match-prop-types": ["warn", { "allowRequiredDefaults": false }],
