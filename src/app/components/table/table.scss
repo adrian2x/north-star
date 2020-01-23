@@ -27,7 +27,7 @@ $font-size-s2: 12px;
       font-size: $font-size-s2;
       color: $gray-color-dark;
       background-color: $gray-color-light;
-      border-bottom: 1px solid rgba($gray-color, 0.2);
+      border-bottom: 3px solid rgba($gray-color, 0.2);
       padding-right: 0 !important;
     }
 
@@ -35,15 +35,20 @@ $font-size-s2: 12px;
       line-height: $headerLineHeight;
       letter-spacing: 1px;
       padding: 1em 1px;
+      padding-top: calc(1em + 3px);
       outline: none;
     }
 
     .ReactVirtualized__Table__sortableHeaderIcon {
       height: #{$headerLineHeight}em;
+      font-size: 0.84em;
+      display: inline-block;
+      transform: translateY(-3px);
+      margin-left: 4px;
     }
 
     .ReactVirtualized__Table__row {
-      border-bottom: 1px solid rgba($gray-color, 0.2);
+      border-bottom: 1px solid rgba($gray-color, 0.5);
 
       &.row-dark {
         background-color: $gray-color-light;

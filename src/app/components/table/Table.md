@@ -1,12 +1,14 @@
 Tables include default styles for tables and data sets.
 
 ```jsx
+import { Table, Column } from "./Table";
+import table_data from "fixtures/table_data";
 <div className="column col-12">
   <Table
     data={table_data}
     height={525}
-    headerHeight={40}
-    rowHeight={52}>
+    headerHeight={43}
+    rowHeight={53}>
     <Column
       dataKey="name"
       label="Name"

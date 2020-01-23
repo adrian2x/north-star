@@ -6,14 +6,17 @@ import clsx from "clsx";
 import "./table.scss";
 
 // You can import any component you want as a named export from 'react-virtualized', eg
-import { Column, Table as VTable, SortDirection } from "react-virtualized";
+import { Table as VTable, SortDirection } from "react-virtualized";
 // But if you only use a few react-virtualized components,
 // And you're concerned about increasing your application's bundle size,
 // You can directly import only the components you need, like so:
 import AutoSizer from "react-virtualized/dist/commonjs/AutoSizer";
+import { Column } from "./Column";
 
 export interface TableProps {
+  // An array of items representing the table rows
   data: any[];
+  // Applies a striped style to the table rows
   striped?: boolean;
 }
 
@@ -32,21 +35,20 @@ export class Table extends PureComponent<TableProps, TableState> {
     };
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    const { sortBy: prevSortBy, sortDirection: prevSortDirection } = this.state;
+  componentDidUpdate(prevProps, prevState) {
+    const { sortBy, sortDirection } = this.state;
 
-    if (nextProps.data != this.props.data) {
-      this.setState({ data: nextProps.data });
+    if (prevProps.data != this.props.data) {
+      // Set new dataset
+      this.setState({ data: prevProps.data });
     }
 
     if (
-      nextState.sortBy !== prevSortBy ||
-      nextState.sortDirection !== prevSortDirection
+      prevState.sortBy !== sortBy ||
+      prevState.sortDirection !== sortDirection
     ) {
       // Apply sorting
-      let { data } = nextProps;
-      const { sortBy, sortDirection } = nextState;
-
+      let { data } = this.props;
       if (sortBy) {
         data = orderBy(
           data,
@@ -60,8 +62,9 @@ export class Table extends PureComponent<TableProps, TableState> {
 
   render() {
     const { data, sortBy, sortDirection } = this.state;
+    const length = data.length;
     return (
-      <div className="table" data-count={data.length}>
+      <div className="table" data-count={length}>
         <AutoSizer>
           {({ height, width }) => (
             <VTable
@@ -72,9 +75,9 @@ export class Table extends PureComponent<TableProps, TableState> {
               sort={this._sort}
               sortBy={sortBy}
               sortDirection={sortDirection}
-              overscanRowCount={20}
-              rowCount={data.length}
+              rowCount={length}
               rowGetter={({ index }) => data[index]}
+              overscanRowCount={20}
             >
               {this.props.children}
             </VTable>
