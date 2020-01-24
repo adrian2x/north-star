@@ -1,13 +1,53 @@
 import * as React from "react";
-import { PureComponent } from "react";
 import { Column as VColumn, SortDirection } from "react-virtualized";
-import defaultCellRenderer from 'react-virtualized/dist/es/Table/defaultCellRenderer';
-import defaultCellDataGetter from 'react-virtualized/dist/es/Table/defaultCellDataGetter';
 import clsx from "clsx";
 
+export type CellDataGetterParams = {
+  columnData?: any;
+  dataKey: string;
+  rowData: any;
+};
 
+export type CellDataGetter = ({
+  dataKey,
+  rowData,
+}: CellDataGetterParams) => React.ReactNode;
 
-const SortIndicator = ({sortDirection}) => {
+export type CellRendererParams = {
+  cellData?: any;
+  columnData?: any;
+  dataKey: string;
+  rowData: any;
+  rowIndex: number;
+};
+
+export type CellRendererFunc = ({
+  cellData,
+}: CellRendererParams) => React.ReactNode;
+
+export type HeaderRendererParams = {
+  columnData?: any;
+  dataKey: string;
+  disableSort?: boolean;
+  label?: any;
+  sortBy?: string;
+  sortDirection?: string;
+};
+
+export type HeaderRenderFunc = ({
+  dataKey,
+  columnData,
+  disableSort,
+  label,
+  sortBy,
+  sortDirection,
+}: HeaderRendererParams) => React.ReactNode;
+
+export interface SortIndicatorProps {
+  sortDirection: SortDirection;
+}
+
+const SortIndicator = ({ sortDirection }: SortIndicatorProps): JSX.Element => {
   let icon = "";
   const classNames = clsx("ReactVirtualized__Table__sortableHeaderIcon", {
     "ReactVirtualized__Table__sortableHeaderIcon--ASC":
@@ -20,9 +60,17 @@ const SortIndicator = ({sortDirection}) => {
   } else if (sortDirection == SortDirection.ASC) {
     icon = "⬆";
   }
-  console.log(sortDirection, SortDirection.DESC, icon);
   return <span className={classNames}>{icon}</span>;
 };
+
+const _cellDataGetter = ({ dataKey, rowData }: CellDataGetterParams) => {
+  return typeof rowData.get === "function"
+    ? rowData.get(dataKey)
+    : rowData[dataKey];
+};
+
+const _cellRenderer = ({ cellData }: CellRendererParams) =>
+  cellData == null ? "" : String(cellData);
 
 const _cellHeaderRenderer = ({
   dataKey,
@@ -31,7 +79,7 @@ const _cellHeaderRenderer = ({
   disableSort,
   sortBy,
   sortDirection,
-}) => {
+}: HeaderRendererParams) => {
   const showSortIndicator = sortBy === dataKey;
   const children = [
     <span
@@ -55,24 +103,25 @@ const _cellHeaderRenderer = ({
 export interface ColumnProps {
   dataKey: string;
   width: number;
+  cellDataGetter: CellDataGetter;
+  cellRenderer: CellRendererFunc;
+  defaultSortDirection: SortDirection;
+  headerRenderer: HeaderRenderFunc;
+  flexShrink: number;
+  flexGrow: number;
+  style: any;
 }
 
-export class Column extends PureComponent<ColumnProps, {}> {
-  static defaultProps = {
-    cellDataGetter: defaultCellDataGetter,
-    cellRenderer: defaultCellDataGetter,
-    defaultSortDirection: SortDirection.ASC,
-    headerRenderer: _cellHeaderRenderer,
-    flexShrink: 1,
-    flexGrow: 0,
-    style: {},
-  };
+export const Column: React.FC<ColumnProps> = props => {
+  return <VColumn {...props} />;
+};
 
-  render() {
-    return (
-      <VColumn
-        {...this.props}
-      />
-    );
-  }
-}
+Column.defaultProps = {
+  cellDataGetter: _cellDataGetter,
+  cellRenderer: _cellRenderer,
+  defaultSortDirection: SortDirection.ASC,
+  headerRenderer: _cellHeaderRenderer,
+  flexShrink: 1,
+  flexGrow: 0,
+  style: {},
+};

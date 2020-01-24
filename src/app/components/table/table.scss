@@ -3,14 +3,14 @@
 
 $font-size-s2: 12px;
 
-.table {
+.ui-table {
   // for ui-tables use a lot more padding and space ie. 1em vertical, 10px horizontal, no borders
   // for data-tables which are more compact, less spacing ie. 10px vertical, 8px horizontal, subtle borders
   // table headers should use half vertical padding
   border-radius: $border-radius-2;
   box-shadow: $box-shadow-1;
-  min-height: 525px;
-  margin: 1.5rem auto;
+  min-height: 99px;
+  margin: 1rem auto;
   width: 100%;
   display: flex;
 
@@ -44,11 +44,15 @@ $font-size-s2: 12px;
       font-size: 0.84em;
       display: inline-block;
       transform: translateY(-3px);
-      margin-left: 4px;
+      margin-left: 1em;
     }
 
     .ReactVirtualized__Table__row {
       border-bottom: 1px solid rgba($gray-color, 0.5);
+
+      &:last-child {
+        border-bottom: none;
+      }
 
       &.row-dark {
         background-color: $gray-color-light;
