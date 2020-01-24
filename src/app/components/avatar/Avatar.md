@@ -67,23 +67,23 @@ For users who don't have profile pictures, you may use their initials for avatar
 <div className="column col-12">
   <Avatar className="mr-2" size="xl">
     <img src="https://randomuser.me/api/portraits/women/44.jpg"/>
-    <i class="avatar-presence online"></i>
+    <i className="avatar-presence online"></i>
   </Avatar>
   <Avatar className="mr-2" size="lg">
     <img src="https://randomuser.me/api/portraits/women/8.jpg"/>
-    <i class="avatar-presence busy"></i>
+    <i className="avatar-presence busy"></i>
   </Avatar>
   <Avatar className="mr-2">
     <img src="https://randomuser.me/api/portraits/men/1.jpg"/>
-    <i class="avatar-presence away"></i>
+    <i className="avatar-presence away"></i>
   </Avatar>
   <Avatar className="mr-2" size="sm">
     <img src="https://randomuser.me/api/portraits/women/9.jpg"/>
-    <i class="avatar-presence gray"></i>
+    <i className="avatar-presence gray"></i>
   </Avatar>
   <Avatar className="mr-2" size="xs">
     <img src="https://faces.design/faces/m/m15.png"/>
-    <i class="avatar-presence online"></i>
+    <i className="avatar-presence online"></i>
   </Avatar>
 </div>
 ```
