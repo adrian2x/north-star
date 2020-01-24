@@ -3,10 +3,15 @@ import map from "lodash/map";
 import clsx from "clsx";
 
 export interface TableProps {
+  /** Describes the visible table columns */
   columns: any[];
+  /** Table dataset */
   rows: any[];
+  /** Adds zebra striped styles */
   striped?: boolean;
+  /** Enables horizontal scrolling for large tables */
   scrollable?: boolean;
+  /** Highlight rows on hover */
   hoverable?: boolean;
 }
 

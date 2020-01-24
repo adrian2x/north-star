@@ -1,4 +1,4 @@
-The table component is a wrapper of [react-virtualized](https://github.com/bvaughn/react-virtualized) tables that renders fixed headers and windowed rows for improved performance with large datasets.
+`UITable` is a wrapper of [react-virtualized](https://github.com/bvaughn/react-virtualized) tables that renders fixed headers and windowed rows for improved performance with large datasets.
 
 It uses [AutoSizer](https://github.com/bvaughn/react-virtualized/blob/master/docs/AutoSizer.md) by default, but a fixed `width` and `height` can be provided as well. When relying on `AutoSizer`, it's important to set the parent element's dimensions or the table content will overflow. See [working with AutoSizer](https://github.com/bvaughn/react-virtualized/blob/master/docs/AutoSizer.md#examples).
 
