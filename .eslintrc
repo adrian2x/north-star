@@ -25,7 +25,6 @@
         "multiline-ternary": ["error", "always-multiline"],
         "no-extra-semi": "error",
         "semi": ["error", "always"],
-        "react/jsx-closing-tag-location": "error",
         "react/jsx-indent-props": ["error", 2],
         "react/jsx-no-duplicate-props": ["error", { "ignoreCase": true }],
         "react/jsx-no-comment-textnodes": "error",
