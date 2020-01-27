@@ -1,4 +1,3 @@
-
 ```jsx
 <div className="column col-6 my-2">
   <Select>
