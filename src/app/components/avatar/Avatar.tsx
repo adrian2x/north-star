@@ -1,13 +1,13 @@
-import * as React from "react";
-import { PureComponent } from "react";
-import clsx from "clsx";
+import * as React from 'react';
+import {PureComponent} from 'react';
+import clsx from 'clsx';
 
 export interface AvatarProps {
   className?: string;
   initial?: string;
-  size?: "xl" | "lg" | "sm" | "xs";
+  size?: 'xl' | 'lg' | 'sm' | 'xs';
   icon?: string;
-  presence?: "online" | "busy" | "away" | "gray";
+  presence?: 'online' | 'busy' | 'away' | 'gray';
 }
 
 /**
@@ -19,12 +19,8 @@ export class Avatar extends PureComponent<AvatarProps, {}> {
   };
 
   render() {
-    const { props } = this;
-    const classList = clsx(
-      "avatar",
-      props.className,
-      props.size && "avatar-" + props.size,
-    );
+    const {props} = this;
+    const classList = clsx('avatar', props.className, props.size && 'avatar-' + props.size);
     return (
       <figure className={classList} data-initial={props.initial}>
         {props.children}

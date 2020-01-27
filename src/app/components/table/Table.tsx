@@ -1,6 +1,5 @@
-import * as React from "react";
-import map from "lodash/map";
-import clsx from "clsx";
+import * as React from 'react';
+import clsx from 'clsx';
 
 export interface TableProps {
   /** Describes the visible table columns */
@@ -27,10 +26,10 @@ export const Table: React.FC<TableProps> = ({
   }
 
   const classList = clsx(
-    "table",
-    striped && "table-striped",
-    scrollable && "table-scroll",
-    hoverable && "table-hover",
+    'table',
+    striped && 'table-striped',
+    scrollable && 'table-scroll',
+    hoverable && 'table-hover',
   );
 
   return (

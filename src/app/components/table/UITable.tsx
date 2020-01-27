@@ -1,17 +1,16 @@
-import * as React from "react";
-import { PureComponent } from "react";
-import { orderBy } from "lodash";
-import clsx from "clsx";
+import * as React from 'react';
+import {PureComponent} from 'react';
+import {orderBy} from 'lodash';
 
-import "./table.scss";
+import './table.scss';
 
 // You can import any component you want as a named export from 'react-virtualized', eg
-import { Table, SortDirection } from "react-virtualized";
+import {Table, SortDirection} from 'react-virtualized';
 // But if you only use a few react-virtualized components,
 // And you're concerned about increasing your application's bundle size,
 // You can directly import only the components you need, like so:
-import AutoSizer from "react-virtualized/dist/commonjs/AutoSizer";
-import { Column } from "./Column";
+import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
+import {Column} from './Column';
 
 export interface UITableProps {
   // An array of items representing the table rows
@@ -41,41 +40,34 @@ export class UITable extends PureComponent<UITableProps, UITableState> {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { sortBy, sortDirection } = this.state;
+    const {sortBy, sortDirection} = this.state;
 
     if (prevProps.data != this.props.data) {
       // Set new dataset
-      this.setState({ data: prevProps.data });
+      this.setState({data: prevProps.data});
     }
 
-    if (
-      prevState.sortBy !== sortBy ||
-      prevState.sortDirection !== sortDirection
-    ) {
+    if (prevState.sortBy !== sortBy || prevState.sortDirection !== sortDirection) {
       // Apply sorting
-      let { data } = this.props;
+      let {data} = this.props;
       if (sortBy) {
         data = orderBy(
           data,
           item => item[sortBy],
-          sortDirection === SortDirection.DESC ? "desc" : "asc",
+          sortDirection === SortDirection.DESC ? 'desc' : 'asc',
         );
       }
-      this.setState({ data });
+      this.setState({data});
     }
   }
 
   render() {
-    const { data, sortBy, sortDirection } = this.state;
+    const {data, sortBy, sortDirection} = this.state;
     const length = data.length;
     return (
-      <div
-        className="table ui-table"
-        data-count={length}
-        style={{ height: this.props.height }}
-      >
+      <div className="table ui-table" data-count={length} style={{height: this.props.height}}>
         <AutoSizer>
-          {({ height, width }) => (
+          {({height, width}) => (
             <Table
               height={height}
               width={width}
@@ -84,7 +76,7 @@ export class UITable extends PureComponent<UITableProps, UITableState> {
               sortBy={sortBy}
               sortDirection={sortDirection}
               rowCount={length}
-              rowGetter={({ index }) => data[index]}
+              rowGetter={({index}) => data[index]}
               overscanRowCount={20}
               {...this.props}
             >
@@ -96,14 +88,14 @@ export class UITable extends PureComponent<UITableProps, UITableState> {
     );
   }
 
-  _rowClassName = ({ index }) => {
+  _rowClassName = ({index}) => {
     if (this.props.striped && index > 0) {
-      return index % 2 ? "row-dark" : "";
+      return index % 2 ? 'row-dark' : '';
     }
   };
 
-  _sort = ({ sortBy, sortDirection }) => {
-    const { sortBy: prevSortBy, sortDirection: prevSortDirection } = this.state;
+  _sort = ({sortBy, sortDirection}) => {
+    const {sortBy: prevSortBy, sortDirection: prevSortDirection} = this.state;
 
     // If list was sorted DESC by this column.
     // Rather than switch to ASC, return to "natural" order.
@@ -112,8 +104,8 @@ export class UITable extends PureComponent<UITableProps, UITableState> {
       sortDirection = null;
     }
 
-    this.setState({ sortBy, sortDirection });
+    this.setState({sortBy, sortDirection});
   };
 }
 
-export { Column };
+export {Column};
