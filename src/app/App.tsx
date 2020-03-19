@@ -1,11 +1,11 @@
-import * as React from "react";
-import { Store } from "redux";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import * as React from 'react';
+import {Store} from 'redux';
+import {Provider} from 'react-redux';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-import { Main } from "./components/Main";
+import {Main} from './components/Main';
 
-import "../styles/base.scss";
+import '../styles/base.scss';
 
 export interface AppProps {
   store: Store;
