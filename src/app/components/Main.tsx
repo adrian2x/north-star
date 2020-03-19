@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button } from "./button/Button";
+import { Button } from "../../external/reactify/components/button/Button";
 
 export class Main extends React.PureComponent<{}> {
   render() {

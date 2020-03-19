@@ -1,3 +1,6 @@
 [submodule "src/external/spectre"]
 	path = src/external/spectre
 	url = git@github.com:adrian2x/spectre.git
+[submodule "src/external/reactify"]
+	path = src/external/reactify
+	url = git@github.com:adrian2x/styleguides.git
